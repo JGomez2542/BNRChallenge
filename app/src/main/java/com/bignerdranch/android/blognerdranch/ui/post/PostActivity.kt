@@ -15,6 +15,9 @@ import com.bignerdranch.android.blognerdranch.models.Post
 import kotlinx.android.synthetic.main.activity_post.*
 import javax.inject.Inject
 
+/**
+ * Displays a single post
+ */
 class PostActivity : AppCompatActivity() {
 
     @Inject
@@ -36,6 +39,9 @@ class PostActivity : AppCompatActivity() {
         })
     }
 
+    /**
+     * Updates the view with the chosen post
+     */
     private fun updateUI(post: Post) {
         title_textview?.text = post.metadata?.title
         author_textView?.text = post.metadata?.author?.name
@@ -43,8 +49,6 @@ class PostActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val TAG = "PostActivity"
-
         fun newIntent(context: Context, id: Int): Intent {
             val intent = Intent(context, PostActivity::class.java)
             intent.putExtra(EXTRA_POST_ID, id)

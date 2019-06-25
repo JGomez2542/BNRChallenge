@@ -14,6 +14,9 @@ import com.bignerdranch.android.blognerdranch.di.activity.ActivityModule
 import kotlinx.android.synthetic.main.activity_post_list.*
 import javax.inject.Inject
 
+/**
+ * Displays a list of posts
+ */
 class PostListActivity : AppCompatActivity() {
 
     @Inject

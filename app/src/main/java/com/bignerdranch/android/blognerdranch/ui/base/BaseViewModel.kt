@@ -6,6 +6,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * Base class for all ViewModels
+ */
 open class BaseViewModel : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext

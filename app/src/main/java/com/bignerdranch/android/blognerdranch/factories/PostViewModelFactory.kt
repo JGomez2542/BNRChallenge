@@ -9,15 +9,18 @@ import com.bignerdranch.android.blognerdranch.ui.post.PostViewModel
 import java.lang.IllegalArgumentException
 import javax.inject.Inject
 
+/**
+ * Factory for PostViewModel
+ */
+@Suppress("UNCHECKED_CAST")
 class PostViewModelFactory @Inject constructor(
     private val repository: Repository,
     private val postMutableLiveData: MutableLiveData<Post>
 ) : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return if (modelClass.isAssignableFrom(PostViewModel::class.java)) PostViewModel(
+    override fun <T : ViewModel?> create(modelClass: Class<T>) =
+        if (modelClass.isAssignableFrom(PostViewModel::class.java)) PostViewModel(
             repository,
             postMutableLiveData
         ) as T
         else throw IllegalArgumentException("ViewModel not Found")
-    }
 }

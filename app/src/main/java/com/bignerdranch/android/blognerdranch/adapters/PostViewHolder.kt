@@ -11,6 +11,9 @@ import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.recycler_list_item.*
 
+/**
+ * ViewHolder for each post in the PostListActivity's recyclerview
+ */
 class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), View.OnClickListener,
     LayoutContainer {
 
@@ -20,6 +23,9 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
         containerView.setOnClickListener(this)
     }
 
+    /**
+     * Binds [postMetadata] to a ViewHolder
+     */
     fun bind(postMetadata: PostMetadata) {
         this.postMetadata = postMetadata
         textView_title.text = postMetadata.title

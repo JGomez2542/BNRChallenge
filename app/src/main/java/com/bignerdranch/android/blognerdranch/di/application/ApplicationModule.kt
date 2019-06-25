@@ -7,6 +7,9 @@ import com.bignerdranch.android.blognerdranch.data.repository.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Instantiates application wide dependencies
+ */
 @Module
 class ApplicationModule {
 

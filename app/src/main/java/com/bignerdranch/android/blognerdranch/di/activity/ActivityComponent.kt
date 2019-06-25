@@ -6,6 +6,9 @@ import com.bignerdranch.android.blognerdranch.ui.list.PostListActivity
 import com.bignerdranch.android.blognerdranch.ui.post.PostActivity
 import dagger.Subcomponent
 
+/**
+ * Individual component for each activity
+ */
 @ActivityScope
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {

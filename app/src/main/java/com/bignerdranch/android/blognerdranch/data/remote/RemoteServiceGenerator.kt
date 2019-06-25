@@ -6,6 +6,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Creates and configures a retrofit adapter based on the service class
+ */
 class RemoteServiceGenerator {
 
     fun <T> createService(serviceClass: Class<T>): T {

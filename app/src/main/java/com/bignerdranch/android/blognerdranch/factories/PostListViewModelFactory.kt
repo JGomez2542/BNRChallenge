@@ -9,6 +9,10 @@ import com.bignerdranch.android.blognerdranch.ui.list.PostListViewModel
 import java.lang.IllegalArgumentException
 import javax.inject.Inject
 
+/**
+ * Factory for PostListViewModel
+ */
+@Suppress("UNCHECKED_CAST")
 class PostListViewModelFactory @Inject constructor(
     private val repository: Repository, private val postAdapterLiveData: MutableLiveData<PostAdapter>
 ) : ViewModelProvider.Factory {

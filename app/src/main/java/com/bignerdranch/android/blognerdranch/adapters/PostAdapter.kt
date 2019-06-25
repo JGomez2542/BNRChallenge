@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import com.bignerdranch.android.blognerdranch.R
 import com.bignerdranch.android.blognerdranch.models.PostMetadata
 
+/**
+ * Adapter for the PostListActivity's recyclerview
+ */
 class PostAdapter(val postMetadata: List<PostMetadata>) : RecyclerView.Adapter<PostViewHolder>() {
 
-    override fun getItemCount(): Int {
-        return postMetadata.size
-    }
+    override fun getItemCount() = postMetadata.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_list_item, parent, false)

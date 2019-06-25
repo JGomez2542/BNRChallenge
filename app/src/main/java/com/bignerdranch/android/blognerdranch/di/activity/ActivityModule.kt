@@ -9,6 +9,9 @@ import com.bignerdranch.android.blognerdranch.ui.post.PostViewModel
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Instantiates activity specific dependencies
+ */
 @Module
 class ActivityModule(private val activity: AppCompatActivity) {
 
