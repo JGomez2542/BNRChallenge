@@ -57,7 +57,6 @@ class PostListActivityTest {
     @After
     fun tearDown() {
         IdlingRegistry.getInstance().unregister(activityRule.activity.countingIdlingResource)
-        activityRule.finishActivity()
         Intents.release()
     }
 }

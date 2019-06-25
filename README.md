@@ -33,9 +33,9 @@ show title, author, summary, and publish date.
 - [DONE] Archibald's _massive_ blog post takes a long time to download from the server,
 and it's slowing the whole app down. We should improve the user experience for 
 large posts like this.
-- [DONE ] The networking code is duplicated in both of our activities. We should
+- [DONE] The networking code is duplicated in both of our activities. We should
 clean that up.
-- [ ] There are no tests. It'd be nice to have some tests to verify the quality of
+- [DONE] There are no tests. It'd be nice to have some tests to verify the quality of
 our work. This could require refactoring the architecture.
 
 ## The APIs
