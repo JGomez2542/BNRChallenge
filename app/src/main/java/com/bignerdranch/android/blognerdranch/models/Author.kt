@@ -1,7 +1,7 @@
 package com.bignerdranch.android.blognerdranch.models
 
-class Author {
-    var name: String? = null
-    var imageUrl: String? = null
+data class Author(
+    var name: String? = null,
+    var image: String? = null,
     var title: String? = null
-}
+)

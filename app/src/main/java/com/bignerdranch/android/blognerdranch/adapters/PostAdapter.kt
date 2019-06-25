@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.bignerdranch.android.blognerdranch.R
 import com.bignerdranch.android.blognerdranch.models.PostMetadata
 
-class PostAdapter(var postMetadata: List<PostMetadata>) : RecyclerView.Adapter<PostViewHolder>() {
+class PostAdapter(val postMetadata: List<PostMetadata>) : RecyclerView.Adapter<PostViewHolder>() {
 
     override fun getItemCount(): Int {
         return postMetadata.size

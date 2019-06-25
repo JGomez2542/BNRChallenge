@@ -8,6 +8,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.bignerdranch.android.blognerdranch.AppController
 import com.bignerdranch.android.blognerdranch.R
+import com.bignerdranch.android.blognerdranch.common.EXTRA_POST_ID
 import com.bignerdranch.android.blognerdranch.common.whenNull
 import com.bignerdranch.android.blognerdranch.di.activity.ActivityModule
 import com.bignerdranch.android.blognerdranch.models.Post
@@ -43,8 +44,6 @@ class PostActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "PostActivity"
-
-        const val EXTRA_POST_ID = "postID"
 
         fun newIntent(context: Context, id: Int): Intent {
             val intent = Intent(context, PostActivity::class.java)

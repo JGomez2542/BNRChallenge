@@ -1,8 +1,8 @@
 package com.bignerdranch.android.blognerdranch.di.application
 
 import androidx.lifecycle.MutableLiveData
+import com.bignerdranch.android.blognerdranch.adapters.PostAdapter
 import com.bignerdranch.android.blognerdranch.models.Post
-import com.bignerdranch.android.blognerdranch.models.PostMetadata
 import dagger.Module
 import dagger.Provides
 
@@ -10,7 +10,7 @@ import dagger.Provides
 class LiveDataModule {
 
     @Provides
-    fun providesPostMetaDataLiveData() = MutableLiveData<List<PostMetadata>>()
+    fun providesPostAdapterLiveData() = MutableLiveData<PostAdapter>()
 
     @Provides
     fun providesPostLiveData() = MutableLiveData<Post>()

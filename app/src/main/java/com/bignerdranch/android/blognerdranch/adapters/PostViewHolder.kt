@@ -1,6 +1,5 @@
 package com.bignerdranch.android.blognerdranch.adapters
 
-import android.provider.SyncStateContract
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -39,14 +38,14 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
 
         Glide.with(containerView.context)
             .asBitmap()
-            .load("$BASE_URL${postMetadata.author?.imageUrl}")
+            .load("$BASE_URL${postMetadata.author?.image}")
             .apply(options)
             .into(author_image)
     }
 
     override fun onClick(v: View) {
         val context = v.context
-        context.startActivity(PostActivity.newIntent(v.context, postMetadata!!.postId!!))
+        context.startActivity(PostActivity.newIntent(v.context, postMetadata?.postId!!))
     }
 
 }

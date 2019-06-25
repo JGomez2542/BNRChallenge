@@ -2,10 +2,10 @@ package com.bignerdranch.android.blognerdranch.models
 
 import com.bignerdranch.android.blognerdranch.models.Author
 
-class PostMetadata {
-    var postId: Int? = null
-    var title: String? = null
-    var summary: String? = null
-    var author: Author? = null
-    var publishDate: String? = null
-}
+data class PostMetadata(
+    val postId: Int? = null,
+    val title: String? = null,
+    val summary: String? = null,
+    val author: Author? = null,
+    val publishDate: String? = null
+)
