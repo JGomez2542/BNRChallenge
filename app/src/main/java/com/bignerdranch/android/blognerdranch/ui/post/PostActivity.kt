@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.bignerdranch.android.blognerdranch.AppController
 import com.bignerdranch.android.blognerdranch.R
 import com.bignerdranch.android.blognerdranch.common.EXTRA_POST_ID
-import com.bignerdranch.android.blognerdranch.common.whenNull
+import com.bignerdranch.android.blognerdranch.common.ifNull
 import com.bignerdranch.android.blognerdranch.di.activity.ActivityModule
 import com.bignerdranch.android.blognerdranch.models.Post
 import kotlinx.android.synthetic.main.activity_post.*
@@ -28,7 +28,7 @@ class PostActivity : AppCompatActivity() {
         (application as AppController).applicationComponent.newActivityComponent(ActivityModule(this)).inject(this)
 
         postId = intent.getIntExtra(EXTRA_POST_ID, 0)
-        whenNull(savedInstanceState, postViewModel::getPost, postId)
+        savedInstanceState.ifNull { postViewModel.getPost(postId) }
 
         postViewModel.postLiveData.observe(this, Observer {
             progressBar.visibility = View.INVISIBLE

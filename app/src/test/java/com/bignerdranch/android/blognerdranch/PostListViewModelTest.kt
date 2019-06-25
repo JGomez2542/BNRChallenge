@@ -60,7 +60,7 @@ class PostListViewModelTest {
                 PostMetadata(postId = 3)
             )
         )
-        postListViewModel._postAdapterLiveData.observeForever(mockObserver)
+        postListViewModel.postAdapterLiveData.observeForever(mockObserver)
         launch {
             postListViewModel.getPostList()
         }.join()
@@ -70,7 +70,7 @@ class PostListViewModelTest {
 
     @After
     fun tearDown() {
-        postListViewModel._postAdapterLiveData.removeObserver(mockObserver)
+        postListViewModel.postAdapterLiveData.removeObserver(mockObserver)
         Dispatchers.resetMain()
         mainThreadSurrogate.close()
     }

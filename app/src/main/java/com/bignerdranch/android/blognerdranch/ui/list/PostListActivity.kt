@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.idling.CountingIdlingResource
 import com.bignerdranch.android.blognerdranch.AppController
 import com.bignerdranch.android.blognerdranch.R
-import com.bignerdranch.android.blognerdranch.common.whenNull
+import com.bignerdranch.android.blognerdranch.common.ifNull
 import com.bignerdranch.android.blognerdranch.di.activity.ActivityModule
 import kotlinx.android.synthetic.main.activity_post_list.*
 import javax.inject.Inject
@@ -24,7 +24,12 @@ class PostListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_list)
         (application as AppController).applicationComponent.newActivityComponent(ActivityModule(this)).inject(this)
-        whenNull(savedInstanceState, postListViewModel::getPostList)
+
+        savedInstanceState.ifNull {
+            countingIdlingResource.increment()
+            postListViewModel.getPostList()
+        }
+
         postListViewModel.postAdapterLiveData.observe(this, Observer {
             if (!countingIdlingResource.isIdleNow) {
                 countingIdlingResource.decrement()

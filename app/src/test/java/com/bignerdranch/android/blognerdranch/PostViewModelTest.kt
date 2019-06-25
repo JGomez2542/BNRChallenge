@@ -54,7 +54,7 @@ class PostViewModelTest {
     @Test
     fun shouldEmitPost_whenGetPostIsInvoked() = runBlockingTest {
         whenever(mockRepository.getPost(anyInt())).thenReturn(Post(id = 1))
-        postViewModel._postLiveData.observeForever(mockObserver)
+        postViewModel.postLiveData.observeForever(mockObserver)
         launch {
             postViewModel.getPost(2)
         }.join()
@@ -64,7 +64,7 @@ class PostViewModelTest {
 
     @After
     fun tearDown() {
-        postViewModel._postLiveData.removeObserver(mockObserver)
+        postViewModel.postLiveData.removeObserver(mockObserver)
         Dispatchers.resetMain()
         mainThreadSurrogate.close()
     }
