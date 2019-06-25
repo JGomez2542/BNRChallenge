@@ -7,9 +7,6 @@ import com.bignerdranch.android.blognerdranch.data.repository.Repository
 import com.bignerdranch.android.blognerdranch.ui.base.BaseViewModel
 import kotlinx.coroutines.*
 
-/**
- *
- */
 class PostListViewModel(
     private val repository: Repository,
     private val _postAdapterLiveData: MutableLiveData<PostAdapter>
