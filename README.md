@@ -28,7 +28,7 @@ it:
 
 - [DONE] Our RecyclerView rows just show the title for each post. It should
 show title, author, summary, and publish date.
-- [ ] The UI is bare-bones right now. It should look nicer.
+- [DONE] The UI is bare-bones right now. It should look nicer.
 - [DONE] The app re-fetches everything from the server across a configuration change.
 - [DONE] Archibald's _massive_ blog post takes a long time to download from the server,
 and it's slowing the whole app down. We should improve the user experience for 
