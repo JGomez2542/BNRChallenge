@@ -1,7 +1,5 @@
 package com.bignerdranch.android.blognerdranch.ui.post
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -48,11 +46,9 @@ class PostActivity : AppCompatActivity() {
         body_textView?.text = post.body
     }
 
-    companion object {
-        fun newIntent(context: Context, id: Int): Intent {
-            val intent = Intent(context, PostActivity::class.java)
-            intent.putExtra(EXTRA_POST_ID, id)
-            return intent
-        }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        //Invoking finish to execute any pending transitions before finishing
+        finish()
     }
 }

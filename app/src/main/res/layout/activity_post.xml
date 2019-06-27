@@ -28,9 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/author"
-                android:src="@drawable/bnr_logo"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
+                android:src="@drawable/bnr_logo"
                 app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
@@ -65,14 +65,17 @@
                 android:id="@+id/title_textview"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:transitionName="@string/shared_title_trans" />
+
 
             <TextView
                 android:id="@+id/author_textView"
                 style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:transitionName="@string/shared_author_trans" />
 
             <TextView
                 android:id="@+id/body_textView"

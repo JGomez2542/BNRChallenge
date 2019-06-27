@@ -5,7 +5,6 @@ import android.view.View
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bignerdranch.android.blognerdranch.common.BASE_URL
 import com.bignerdranch.android.blognerdranch.models.PostMetadata
-import com.bignerdranch.android.blognerdranch.ui.post.PostActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.extensions.LayoutContainer
@@ -14,14 +13,9 @@ import kotlinx.android.synthetic.main.recycler_list_item.*
 /**
  * ViewHolder for each post in the PostListActivity's recyclerview
  */
-class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), View.OnClickListener,
-    LayoutContainer {
+class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     var postMetadata: PostMetadata? = null
-
-    init {
-        containerView.setOnClickListener(this)
-    }
 
     /**
      * Binds [postMetadata] to a ViewHolder
@@ -48,10 +42,4 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
             .apply(options)
             .into(author_image)
     }
-
-    override fun onClick(v: View) {
-        val context = v.context
-        context.startActivity(PostActivity.newIntent(v.context, postMetadata?.postId!!))
-    }
-
 }

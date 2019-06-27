@@ -2,8 +2,8 @@ package com.bignerdranch.android.blognerdranch.ui.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.bignerdranch.android.blognerdranch.adapters.PostAdapter
 import com.bignerdranch.android.blognerdranch.data.repository.Repository
+import com.bignerdranch.android.blognerdranch.models.PostMetadata
 import com.bignerdranch.android.blognerdranch.ui.base.BaseViewModel
 import kotlinx.coroutines.*
 
@@ -12,11 +12,10 @@ import kotlinx.coroutines.*
  */
 class PostListViewModel(
     private val repository: Repository,
-    private val _postAdapterLiveData: MutableLiveData<PostAdapter>
+    private val _postAdapterLiveData: MutableLiveData<List<PostMetadata>>
 ) : BaseViewModel() {
 
-    val postAdapterLiveData: LiveData<PostAdapter>
-        get() = _postAdapterLiveData
+    val postAdapterLiveData: LiveData<List<PostMetadata>> = _postAdapterLiveData
 
     /**
      * Gets a list of posts
@@ -24,7 +23,7 @@ class PostListViewModel(
     fun getPostList() {
         launch {
             val postList = repository.getPostMetadata()
-            _postAdapterLiveData.value = PostAdapter(postList)
+            _postAdapterLiveData.value = postList
         }
     }
 }

@@ -3,7 +3,6 @@ package com.bignerdranch.android.blognerdranch
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.bignerdranch.android.blognerdranch.adapters.PostAdapter
 import com.bignerdranch.android.blognerdranch.data.repository.Repository
 import com.bignerdranch.android.blognerdranch.models.PostMetadata
 import com.bignerdranch.android.blognerdranch.ui.list.PostListViewModel
@@ -34,13 +33,13 @@ class PostListViewModelTest {
     private lateinit var mockRepository: Repository
 
     @Mock
-    private lateinit var mockObserver: Observer<PostAdapter>
+    private lateinit var mockObserver: Observer<List<PostMetadata>>
 
     @Captor
-    private lateinit var postMetadataCaptor: ArgumentCaptor<PostAdapter>
+    private lateinit var postListMetadataCaptor: ArgumentCaptor<List<PostMetadata>>
 
     @Spy
-    private val postMetaDataLiveData: MutableLiveData<PostAdapter> = MutableLiveData()
+    private val postListMetaDataLiveData: MutableLiveData<List<PostMetadata>> = MutableLiveData()
 
     @InjectMocks
     private lateinit var postListViewModel: PostListViewModel
@@ -52,7 +51,7 @@ class PostListViewModelTest {
     }
 
     @Test
-    fun shouldEmitPostAdapter_whenGetPostListIsInvoked() = runBlockingTest {
+    fun shouldEmitPostList_whenGetPostListIsInvoked() = runBlockingTest {
         whenever(mockRepository.getPostMetadata()).thenReturn(
             listOf(
                 PostMetadata(postId = 1),
@@ -64,8 +63,8 @@ class PostListViewModelTest {
         launch {
             postListViewModel.getPostList()
         }.join()
-        verify(mockObserver).onChanged(postMetadataCaptor.capture())
-        assertEquals(3, postMetadataCaptor.value.postMetadata.size)
+        verify(mockObserver).onChanged(postListMetadataCaptor.capture())
+        assertEquals(3, postListMetadataCaptor.value.size)
     }
 
     @After

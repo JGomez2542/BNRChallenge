@@ -4,4 +4,6 @@
     <string name="title">Title</string>
     <string name="summary">Summary</string>
     <string name="publishdate">PublishDate</string>
+    <string name="shared_title_trans">Shared Title Trans</string>
+    <string name="shared_author_trans">Shared Author Trans</string>
 </resources>

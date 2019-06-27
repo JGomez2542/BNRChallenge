@@ -9,7 +9,7 @@ import com.bignerdranch.android.blognerdranch.models.PostMetadata
 /**
  * Adapter for the PostListActivity's recyclerview
  */
-class PostAdapter(val postMetadata: List<PostMetadata>) : RecyclerView.Adapter<PostViewHolder>() {
+class PostAdapter(val postMetadata: List<PostMetadata>, val listener: OnClickListener) : RecyclerView.Adapter<PostViewHolder>() {
 
     override fun getItemCount() = postMetadata.size
 
@@ -21,5 +21,10 @@ class PostAdapter(val postMetadata: List<PostMetadata>) : RecyclerView.Adapter<P
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val post = postMetadata[position]
         holder.bind(post)
+        holder.itemView.setOnClickListener { listener.onClick(holder, post) }
+    }
+
+    interface OnClickListener {
+        fun onClick(holder: PostViewHolder, postMetadata: PostMetadata)
     }
 }
